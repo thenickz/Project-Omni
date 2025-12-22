@@ -5,10 +5,19 @@ from dataclasses import dataclass
 class TokenType(Enum):
     _ = auto()
     # keywords
-    FN = auto()
+    ## statments
     RETURN = auto()
+
+    ## declarations
+    FN = auto()
     LET = auto()
     CONST = auto()
+    # IF = auto()
+    # ELSE = auto()
+    # ELIF = auto()
+    # WHILE = auto()
+    # FOR = auto()
+    # CLS = auto()
 
     # identifier and types
     IDENTIFIER = auto()
