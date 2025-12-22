@@ -1,5 +1,5 @@
-from lexer import Lexer
-from parser import Parser
+from src.omni.lexer.lexer import Lexer
+from src.omni.parser.parser import Parser
 
 def load_source(path: str) -> str:
     with open(path, 'r') as file:
@@ -7,7 +7,6 @@ def load_source(path: str) -> str:
 
 
 def debug_lexer(tokens):
-    print("# LEXER DEBUG #")
     print(f"{'TIPO':<15} | {'VALOR':<15} | {'LINHA':<5} | {'COLUNA':<5}")
     print("-" * 50)
     for token in tokens:
@@ -44,18 +43,23 @@ def debug_parser(node, indent=0):
         print(f"{prefix}Unknown Node: {node}")
 
 if __name__ == "__main__":
+    lexer_test = 1
+    parser_test = 1
     try:
-        path = "tests/lang02.txt"
+        path = "../tests/lang02.txt"
         source_code = load_source(path)
 
-        lexer = Lexer(source_code)
-        tokens = lexer.tokenize
-        debug_lexer(tokens)
+        if lexer_test:
+            print("\n# LEXER DEBUG #")
+            lexer = Lexer(source_code)
+            tokens = lexer.tokenize
+            debug_lexer(tokens)
 
-        parser = Parser(tokens)
-        ast = parser.parse_program()
-        print("\n# PARSER DEBUG #")
-        debug_parser(ast)
+        if parser_test:
+            print("\n# PARSER DEBUG #")
+            parser = Parser(tokens)
+            ast = parser.parse_program()
+            debug_parser(ast)
 
     except FileNotFoundError:
         print(f"Erro: {path} not found.")
