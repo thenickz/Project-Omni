@@ -45,7 +45,7 @@ def debug_parser(node, indent=0):
 
 if __name__ == "__main__":
     try:
-        path = "dev/lang02.txt"
+        path = "tests/lang02.txt"
         source_code = load_source(path)
 
         lexer = Lexer(source_code)
