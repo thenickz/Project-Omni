@@ -1,0 +1,4 @@
+fn foo(a: i64, b: i64) -> {
+    let result: i64 = a + b
+    return result
+}
