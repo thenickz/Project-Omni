@@ -122,9 +122,9 @@ class Lexer:
             elif character == STR_PLUS:
                 self.add_token(TokenType.PLUS, character, current_line, current_col)
             elif character == STR_MINUS:
-                # Verifica se é uma seta '->'
+                # checks if '->'
                 if self.peek() == STR_ARROW:
-                    self.advance()  # Consome o '>'
+                    self.advance()  # consume '>'
                     self.add_token(TokenType.ARROW, "->", current_line, current_col)
                 else:
                     self.add_token(TokenType.MINUS, character, current_line, current_col)
